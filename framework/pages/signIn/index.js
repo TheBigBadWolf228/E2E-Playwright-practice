@@ -1,12 +1,15 @@
 
 const {LoginFragment} = require('./fragments/login');
 const {RegisterFragment} = require('./fragments/register');
+const {decoratePage} = require('../../../lib');
 
 class SignInPage {
-  constructor(page) {
+  constructor(page, pageRootSelector = '#columns') {
     this.page = page;
+    this.rootSelector = pageRootSelector;
     this.loginFragment = new LoginFragment(page);
     this.registerFragment = new RegisterFragment(page);
+    decoratePage(this);
   }
 
   async login(username, password) {
@@ -19,7 +22,6 @@ class SignInPage {
         lastName, password, address, city, postalCode, mobilePhone);
   }
 }
-
 
 module.exports = {
   SignInPage,

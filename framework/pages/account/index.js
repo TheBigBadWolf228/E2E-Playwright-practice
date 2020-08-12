@@ -1,8 +1,11 @@
 const {wait} = require('../../../lib');
+const {decoratePage} = require('../../../lib');
 
 class AccountPage {
-  constructor(page) {
+  constructor(page, pageRootSelector = '#center_column') {
+    this.rootSelector = pageRootSelector;
     this.page = page;
+    decoratePage(this);
   }
 
   async getMyAccountHeaderTitle() {

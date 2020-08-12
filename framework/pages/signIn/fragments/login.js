@@ -7,25 +7,22 @@ class LoginFragment {
     decoratePage(LoginFragment);
   }
 
-  async email() {
-    const elementHandler = await this.page.$('#email');
-    return elementHandler;
+  get email() {
+    return this.page.$('#email');
   }
 
-  async password() {
-    const elementHandler = await this.page.$('#passwd');
-    return elementHandler;
+  get password() {
+    return this.page.$('#passwd');
   }
 
-  async submitLogin() {
-    const elementHandler = await this.page.$('#SubmitLogin');
-    return elementHandler;
+  get submitLogin() {
+    return this.page.$('#SubmitLogin');
   }
 
   async login(username, password) {
-    await (await this.email()).type(username);
-    await (await this.password()).type(password);
-    await (await this.submitLogin()).click();
+    await (await this.email).type(username);
+    await (await this.password).type(password);
+    await (await this.submitLogin).click();
   }
 }
 

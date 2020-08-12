@@ -8,86 +8,68 @@ class RegisterFragment {
     decoratePage(RegisterFragment);
   }
 
-  async email() {
-    const elementHandler = await this.page.$('#email_create');
-    return elementHandler;
+  get email() {
+    return this.page.$('#email_create');
   }
 
-  async submit() {
-    const elementHandler = await this.page.$('#SubmitCreate');
-    return elementHandler;
+  get submit() {
+    return this.page.$('#SubmitCreate');
   }
 
-  async checkbox() {
-    const elementHandler = await this.page.$('#id_gender1');
-    return elementHandler;
+  get checkbox() {
+    return this.page.$('#id_gender1');
   }
 
-  async firstName() {
-    const elementHandler = await this.page.$('#customer_firstname');
-    return elementHandler;
+  get firstName() {
+    return this.page.$('#customer_firstname');
   }
 
-  async lastName() {
-    const elementHandler = await this.page.$('#customer_lastname');
-    return elementHandler;
+  get lastName() {
+    return this.page.$('#customer_lastname');
   }
 
-  async password() {
-    const elementHandler = await this.page.$('#passwd');
-    return elementHandler;
+  get password() {
+    return this.page.$('#passwd');
   }
 
-  async address() {
-    const elementHandler = await this.page.$('#address1');
-    return elementHandler;
+  get address() {
+    return this.page.$('#address1');
   }
 
-  async city() {
-    const elementHandler = await this.page.$('#city');
-    return elementHandler;
+  get city() {
+    return this.page.$('#city');
   }
 
-  async drop() {
-    const elementHandler = await this.page.$('#uniform-id_state');
-    return elementHandler;
+  get postCode() {
+    return this.page.$('#postcode');
   }
 
-  async postCode() {
-    const elementHandler = await this.page.$('#postcode');
-    return elementHandler;
+  get mobilePhone() {
+    return this.page.$('#phone_mobile');
   }
 
-  async mobilePhone() {
-    const elementHandler = await this.page.$('#phone_mobile');
-    return elementHandler;
-  }
-
-  async submitAccount() {
-    const elementHandler = await this.page.$('#submitAccount');
-    return elementHandler;
+  get submitAccount() {
+    return this.page.$('#submitAccount');
   }
 
 
   async register(newUserMail, firstName, lastName, password, address, city,
       postalCode, mobilePhone) {
-    await (await this.email()).type(newUserMail);
-    await (await this.submit()).click();
+    await (await this.email).type(newUserMail);
+    await (await this.submit).click();
     await wait(this.page).waitVisibility('#id_gender1');
-    await (await this.checkbox()).check();
-    await (await this.firstName()).type(firstName);
-    await (await this.lastName()).type(lastName);
-    await (await this.password()).type(password);
-    await (await this.address()).fill(address);
-    await (await this.city()).fill(city);
-
+    await (await this.checkbox).check();
+    await (await this.firstName).type(firstName);
+    await (await this.lastName).type(lastName);
+    await (await this.password).type(password);
+    await (await this.address).fill(address);
+    await (await this.city).fill(city);
     await this.page.click('#uniform-id_state');
     await this.page.keyboard.down('ArrowDown');
     await this.page.keyboard.down('Enter');
-
-    await (await this.postCode()).type(postalCode);
-    await (await this.mobilePhone()).type(mobilePhone);
-    await (await this.submitAccount()).click();
+    await (await this.postCode).type(postalCode);
+    await (await this.mobilePhone).type(mobilePhone);
+    await (await this.submitAccount).click();
   }
 }
 

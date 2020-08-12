@@ -5,7 +5,7 @@ class AccountPage {
   constructor(page, pageRootSelector = '#center_column') {
     this.rootSelector = pageRootSelector;
     this.page = page;
-    decoratePage(this);
+    decoratePage(AccountPage);
   }
 
   async getMyAccountHeaderTitle() {

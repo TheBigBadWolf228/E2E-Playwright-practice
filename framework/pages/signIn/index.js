@@ -9,7 +9,7 @@ class SignInPage {
     this.rootSelector = pageRootSelector;
     this.loginFragment = new LoginFragment(page);
     this.registerFragment = new RegisterFragment(page);
-    decoratePage(this);
+    decoratePage(SignInPage);
   }
 
   async login(username, password) {

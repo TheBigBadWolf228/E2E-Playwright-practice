@@ -28,7 +28,7 @@ describe('Noop spec', function() {
   it('register', async function() {
     const signInPage = new SignInPage(page);
     const accountPage = new AccountPage(page);
-    await signInPage.register('emailMail@asqwef.com', 'ddo', 'last', '~~~~~',
+    await signInPage.register('newMail@sqqwef.com', 'ddo', 'last', '~~~~~',
         'address', 'city', '00000', '+3809568452');
     expect(await accountPage.getMyAccountHeaderTitle()).to.equal('My account');
   });

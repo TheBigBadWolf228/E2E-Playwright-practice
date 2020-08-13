@@ -1,73 +1,39 @@
 const {wait} = require('../../../../lib');
-const {decoratePage, BaseFragment} = require('../../../../lib');
+const {decoratePage, BaseFragment, $element} = require('../../../../lib');
 
 class RegisterFragment extends BaseFragment {
   constructor(page, rootFragmentSelector = '#header') {
     super(page, rootFragmentSelector);
-  }
-
-  get email() {
-    return this.page.$('#email_create');
-  }
-
-  get submit() {
-    return this.page.$('#SubmitCreate');
-  }
-
-  get checkbox() {
-    return this.page.$('#id_gender1');
-  }
-
-  get firstName() {
-    return this.page.$('#customer_firstname');
-  }
-
-  get lastName() {
-    return this.page.$('#customer_lastname');
-  }
-
-  get password() {
-    return this.page.$('#passwd');
-  }
-
-  get address() {
-    return this.page.$('#address1');
-  }
-
-  get city() {
-    return this.page.$('#city');
-  }
-
-  get postCode() {
-    return this.page.$('#postcode');
-  }
-
-  get mobilePhone() {
-    return this.page.$('#phone_mobile');
-  }
-
-  get submitAccount() {
-    return this.page.$('#submitAccount');
+    this.email = $element(this.page, '#email_create');
+    this.submit = $element(this.page, '#SubmitCreate');
+    this.checkbox = $element(this.page, '#id_gender1');
+    this.firstName = $element(this.page, '#customer_firstname');
+    this.lastName = $element(this.page, '#customer_lastname');
+    this.password = $element(this.page, '#passwd');
+    this.address = $element(this.page, '#address1');
+    this.city = $element(this.page, '#city');
+    this.postCode = $element(this.page, '#postcode');
+    this.mobilePhone = $element(this.page, '#phone_mobile');
+    this.submitAccount = $element(this.page, '#submitAccount');
   }
 
 
   async register(newUserMail, firstName, lastName, password, address, city,
       postalCode, mobilePhone) {
-    await (await this.email).type(newUserMail);
-    await (await this.submit).click();
-    await wait(this.page).waitVisibility('#id_gender1');
-    await (await this.checkbox).check();
-    await (await this.firstName).type(firstName);
-    await (await this.lastName).type(lastName);
-    await (await this.password).type(password);
-    await (await this.address).fill(address);
-    await (await this.city).fill(city);
+    await this.email.type(newUserMail);
+    await this.submit.click();
+    await this.checkbox.check();
+    await this.firstName.type(firstName);
+    await this.lastName.type(lastName);
+    await this.password.type(password);
+    await this.address.fill(address);
+    await this.city.fill(city);
     await this.page.click('#uniform-id_state');
     await this.page.keyboard.down('ArrowDown');
     await this.page.keyboard.down('Enter');
-    await (await this.postCode).type(postalCode);
-    await (await this.mobilePhone).type(mobilePhone);
-    await (await this.submitAccount).click();
+    await this.postCode.type(postalCode);
+    await this.mobilePhone.type(mobilePhone);
+    await this.submitAccount.click();
   }
 }
 

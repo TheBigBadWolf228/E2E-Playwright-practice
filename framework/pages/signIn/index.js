@@ -9,7 +9,6 @@ class SignInPage {
     this.rootSelector = pageRootSelector;
     this.loginFragment = new LoginFragment(page);
     this.registerFragment = new RegisterFragment(page);
-    decoratePage(SignInPage);
   }
 
   async login(username, password) {
@@ -22,6 +21,8 @@ class SignInPage {
         lastName, password, address, city, postalCode, mobilePhone);
   }
 }
+
+decoratePage(SignInPage);
 
 module.exports = {
   SignInPage,

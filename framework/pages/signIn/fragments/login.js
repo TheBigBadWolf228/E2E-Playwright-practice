@@ -4,7 +4,6 @@ class LoginFragment {
   constructor(page, rootFragmentSelector = '#email') {
     this.page = page;
     this.rootSelector = rootFragmentSelector;
-    decoratePage(LoginFragment);
   }
 
   get email() {
@@ -25,6 +24,8 @@ class LoginFragment {
     await (await this.submitLogin).click();
   }
 }
+
+decoratePage(LoginFragment);
 
 module.exports = {
   LoginFragment,

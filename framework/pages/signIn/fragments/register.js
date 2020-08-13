@@ -5,7 +5,6 @@ class RegisterFragment {
   constructor(page, rootFragmentSelector = '#header') {
     this.page = page;
     this.rootSelector = rootFragmentSelector;
-    decoratePage(RegisterFragment);
   }
 
   get email() {
@@ -72,6 +71,8 @@ class RegisterFragment {
     await (await this.submitAccount).click();
   }
 }
+
+decoratePage(RegisterFragment);
 
 module.exports = {
   RegisterFragment,

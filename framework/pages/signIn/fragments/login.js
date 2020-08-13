@@ -1,9 +1,8 @@
-const {decoratePage} = require('../../../../lib');
+const {decoratePage, BaseFragment} = require('../../../../lib');
 
-class LoginFragment {
+class LoginFragment extends BaseFragment {
   constructor(page, rootFragmentSelector = '#email') {
-    this.page = page;
-    this.rootSelector = rootFragmentSelector;
+    super(page, rootFragmentSelector);
   }
 
   get email() {

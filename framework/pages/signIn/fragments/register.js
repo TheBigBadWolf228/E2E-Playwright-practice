@@ -1,10 +1,9 @@
 const {wait} = require('../../../../lib');
-const {decoratePage} = require('../../../../lib');
+const {decoratePage, BaseFragment} = require('../../../../lib');
 
-class RegisterFragment {
+class RegisterFragment extends BaseFragment {
   constructor(page, rootFragmentSelector = '#header') {
-    this.page = page;
-    this.rootSelector = rootFragmentSelector;
+    super(page, rootFragmentSelector);
   }
 
   get email() {

@@ -1,12 +1,11 @@
 
 const {LoginFragment} = require('./fragments/login');
 const {RegisterFragment} = require('./fragments/register');
-const {decoratePage} = require('../../../lib');
+const {decoratePage, BasePage} = require('../../../lib');
 
-class SignInPage {
+class SignInPage extends BasePage {
   constructor(page, pageRootSelector = '#columns') {
-    this.page = page;
-    this.rootSelector = pageRootSelector;
+    super(page, pageRootSelector);
     this.loginFragment = new LoginFragment(page);
     this.registerFragment = new RegisterFragment(page);
   }

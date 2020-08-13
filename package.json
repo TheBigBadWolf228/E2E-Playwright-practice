@@ -2,7 +2,7 @@
     "name": "e2e-playwright-practice",
     "main": "index.js",
     "scripts": {
-        "test": "mocha ./specs/**/*.spec.js --timeout 10000 -R spec"
+        "test": "mocha ./specs/**/*.spec.js --timeout 30000 -R spec"
     },
     "keywords": [],
     "author": "",
@@ -15,6 +15,7 @@
     },
     "dependencies": {
         "chai": "4.2.0",
+        "chalk": "^4.1.0",
         "mocha": "8.1.1"
     }
 }

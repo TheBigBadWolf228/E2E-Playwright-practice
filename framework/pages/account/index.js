@@ -1,15 +1,13 @@
-const {wait} = require('../../../lib');
-const {decoratePage, BasePage} = require('../../../lib');
+const {decoratePage, BasePage, $element} = require('../../../lib');
 
 class AccountPage extends BasePage {
   constructor(page, pageRootSelector = '#center_column') {
     super(page, pageRootSelector);
+    this.header = $element(this.page, '.page-heading');
   }
 
   async getMyAccountHeaderTitle() {
-    await wait(this.page).waitVisibility('.page-heading');
-    const elementHandler = await this.page.$('.page-heading');
-    return elementHandler.textContent();
+    return this.header.textContent();
   }
 }
 

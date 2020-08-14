@@ -1,4 +1,3 @@
-const {wait} = require('../../../../lib');
 const {decoratePage, BaseFragment, $element} = require('../../../../lib');
 
 class RegisterFragment extends BaseFragment {

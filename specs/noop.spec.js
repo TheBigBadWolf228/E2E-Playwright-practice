@@ -1,6 +1,7 @@
 const {expect} = require('chai');
 const {pageProvider} = require('../framework');
 const {chromium} = require('playwright');
+const randomEmail = require('random-email');
 
 
 describe('Noop spec', function() {
@@ -28,7 +29,7 @@ describe('Noop spec', function() {
   it('register', async function() {
     const signInPage = pageProvider(page).signIn();
     const accountPage = pageProvider(page).account();
-    await signInPage.register('dooo@wqqwef.com', 'ddo', 'last', '~~~~~',
+    await signInPage.register(randomEmail(), 'ddo', 'last', '~~~~~',
         'address', 'city', '00000', '+3809568452');
     expect(await accountPage.getMyAccountHeaderTitle()).to.equal('My account');
   });

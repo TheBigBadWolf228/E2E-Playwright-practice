@@ -1,7 +1,7 @@
 const {decoratePage, BasePage, $element} = require('../../../lib');
 
 class AccountPage extends BasePage {
-  constructor(page, pageRootSelector = '#center_column') {
+  constructor(page, pageRootSelector = '.info-account') {
     super(page, pageRootSelector);
     this.header = $element(this.page, '.page-heading');
   }

@@ -16,6 +16,7 @@
     "dependencies": {
         "chai": "4.2.0",
         "chalk": "^4.1.0",
-        "mocha": "8.1.1"
+        "mocha": "8.1.1",
+        "random-email": "^1.0.3"
     }
 }

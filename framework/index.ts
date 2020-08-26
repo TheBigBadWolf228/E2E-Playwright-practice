@@ -1,12 +1,17 @@
 import {SignInPage, AccountPage} from './pages';
-import {makeSingleton} from '../lib';
+import {makeSingleton, Browser} from '../lib';
 
 const pageProvider = (page) => ({
-  signIn: () => makeSingleton(SignInPage, page),
-  account: () => makeSingleton(AccountPage, page),
+  signIn: (): SignInPage => makeSingleton(SignInPage, page),
+  account: (): AccountPage => makeSingleton(AccountPage, page),
 });
+
+const provider = {
+  browser: new Browser()
+}
 
 export {
   pageProvider,
+  provider
 };
 

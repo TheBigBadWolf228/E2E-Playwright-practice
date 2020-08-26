@@ -1,22 +1,18 @@
 import {expect} from 'assertior';
-import {pageProvider} from '../framework';
-import {chromium} from 'playwright';
+import {pageProvider, provider} from '../framework';
 import * as randomEmail from 'random-email';
 
 
 describe('Noop spec', function() {
-  let browser = null;
   let page = null;
 
   beforeEach(async () => {
-    browser = await chromium.launch({headless: false});
-    const context = await browser.newContext();
-    page = await context.newPage();
-    await page.goto('http://automationpractice.com/index.php?controller=authentication&back=my-account');
+    page = await provider.browser.init();
+    await provider.browser.get('http://automationpractice.com/index.php?controller=authentication&back=my-account'); 
   });
 
   afterEach(async () => {
-    await browser.close();
+   await provider.browser.close();
   });
 
   it('login', async function() {

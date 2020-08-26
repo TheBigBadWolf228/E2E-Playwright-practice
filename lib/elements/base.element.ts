@@ -6,12 +6,12 @@ class BaseElement {
   page;
   selector;
   currentElement;
-  elementName;
+  id;
   constructor(page, selector, elementName?) {
     this.page = page;
     this.selector = selector;
     this.currentElement = null;
-    this.elementName = elementName;
+    this.id = elementName;
   }
 
   _replacePage(page) {
@@ -40,10 +40,10 @@ function $element(page, selector, elementName?) {
       }
       return (...args) => baseElement
           .initThisElement().then((currentElement) => {
-            if (!baseElement.elementName) {
-              baseElement.elementName = `BaseElement`;
+            if (!baseElement.id) {
+              baseElement.id = `BaseElement`;
             }
-            let message = `\t\t\t ${baseElement.elementName} execute ${value as string}`;
+            let message = `\t\t${baseElement.id} execute ${value as string}`;
             if (args.length) {
               message = `${message} with arguments ${JSON.stringify(args)}`;
             }

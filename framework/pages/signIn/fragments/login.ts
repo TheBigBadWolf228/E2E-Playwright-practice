@@ -1,4 +1,4 @@
-import {decoratePage, BaseFragment, $element} from '../../../../lib';
+import {BaseFragment, $element} from '../../../../lib';
 
 class LoginFragment extends BaseFragment {
   email;
@@ -6,9 +6,9 @@ class LoginFragment extends BaseFragment {
   submitLogin;
   constructor(page, rootFragmentSelector = '#email') {
     super(page, rootFragmentSelector);
-    this.email = $element(this.page, '#email');
-    this.password = $element(this.page, '#passwd');
-    this.submitLogin = $element(this.page, '#SubmitLogin');
+    this.email = $element(this.page, '#email', 'Email field');
+    this.password = $element(this.page, '#passwd', 'Password field');
+    this.submitLogin = $element(this.page, '#SubmitLogin', 'Submit button');
   }
 
   async login(username, password) {
@@ -17,8 +17,6 @@ class LoginFragment extends BaseFragment {
     await this.submitLogin.click();
   }
 }
-
-decoratePage(LoginFragment);
 
 export {
   LoginFragment,

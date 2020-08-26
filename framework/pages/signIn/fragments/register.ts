@@ -1,4 +1,4 @@
-import {decoratePage, BaseFragment, $element} from '../../../../lib';
+import {BaseFragment, $element} from '../../../../lib';
 
 class RegisterFragment extends BaseFragment {
   email;
@@ -12,19 +12,21 @@ class RegisterFragment extends BaseFragment {
   postCode;
   mobilePhone;
   submitAccount;
+  private id: string;
   constructor(page, rootFragmentSelector = '#header') {
     super(page, rootFragmentSelector);
-    this.email = $element(this.page, '#email_create');
-    this.submit = $element(this.page, '#SubmitCreate');
-    this.checkbox = $element(this.page, '#id_gender1');
-    this.firstName = $element(this.page, '#customer_firstname');
-    this.lastName = $element(this.page, '#customer_lastname');
-    this.password = $element(this.page, '#passwd');
-    this.address = $element(this.page, '#address1');
-    this.city = $element(this.page, '#city');
-    this.postCode = $element(this.page, '#postcode');
-    this.mobilePhone = $element(this.page, '#phone_mobile');
-    this.submitAccount = $element(this.page, '#submitAccount');
+    this.id = 'Register fragment';
+    this.email = $element(this.page, '#email_create', 'Create email field');
+    this.submit = $element(this.page, '#SubmitCreate', 'Submit creation button');
+    this.checkbox = $element(this.page, '#id_gender1', 'Gender checkbox');
+    this.firstName = $element(this.page, '#customer_firstname', 'Firstname field');
+    this.lastName = $element(this.page, '#customer_lastname', 'Lastname field');
+    this.password = $element(this.page, '#passwd', 'Password field');
+    this.address = $element(this.page, '#address1', 'Address field');
+    this.city = $element(this.page, '#city', 'City field');
+    this.postCode = $element(this.page, '#postcode', 'Postcode field');
+    this.mobilePhone = $element(this.page, '#phone_mobile', 'Mobil phone field');
+    this.submitAccount = $element(this.page, '#submitAccount', 'Create account button');
   }
 
 
@@ -46,8 +48,6 @@ class RegisterFragment extends BaseFragment {
     await this.submitAccount.click();
   }
 }
-
-decoratePage(RegisterFragment);
 
 export {
   RegisterFragment,

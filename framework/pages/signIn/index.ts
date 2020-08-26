@@ -1,7 +1,7 @@
 
 import {LoginFragment} from './fragments/login';
 import {RegisterFragment} from './fragments/register';
-import {decoratePage, BasePage} from '../../../lib';
+import {BasePage} from '../../../lib';
 
 class SignInPage extends BasePage {
   loginFragment;
@@ -22,8 +22,6 @@ class SignInPage extends BasePage {
         lastName, password, address, city, postalCode, mobilePhone);
   }
 }
-
-decoratePage(SignInPage);
 
 export {
   SignInPage,

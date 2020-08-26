@@ -7,7 +7,7 @@ class BaseFragment {
   }
 
   _replacePage(page) {
-    const excludeProps = ['page', 'rootSelector'];
+    const excludeProps = ['page', 'rootSelector', 'id'];
     this.page = page;
     const expectedProps = Object.getOwnPropertyNames(this)
         .filter((p) => !excludeProps.includes(p));

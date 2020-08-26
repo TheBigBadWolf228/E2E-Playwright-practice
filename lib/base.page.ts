@@ -1,7 +1,10 @@
+import {decoratePage} from './page.conditions';
+
 class BasePage {
   page;
   rootSelector;
   constructor(page, pageRootSelector) {
+    decoratePage(this);
     this.page = page;
     this.rootSelector = pageRootSelector;
   }

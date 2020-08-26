@@ -1,11 +1,7 @@
-function wait(page) {
+export function wait(page) {
   return {
     waitVisibility: (selector) =>
       page.waitForSelector(selector, {state: 'attached'}),
   };
 }
-
-module.exports = {
-  wait,
-};
 

@@ -1,12 +1,12 @@
-const {SignInPage, AccountPage} = require('./pages');
-const {makeSingleton} = require('../lib');
+import {SignInPage, AccountPage} from './pages';
+import {makeSingleton} from '../lib';
 
 const pageProvider = (page) => ({
   signIn: () => makeSingleton(SignInPage, page),
   account: () => makeSingleton(AccountPage, page),
 });
 
-module.exports = {
+export {
   pageProvider,
 };
 

@@ -1,9 +1,11 @@
 
-const {LoginFragment} = require('./fragments/login');
-const {RegisterFragment} = require('./fragments/register');
-const {decoratePage, BasePage} = require('../../../lib');
+import {LoginFragment} from './fragments/login';
+import {RegisterFragment} from './fragments/register';
+import {decoratePage, BasePage} from '../../../lib';
 
 class SignInPage extends BasePage {
+  loginFragment;
+  registerFragment;
   constructor(page, pageRootSelector = '#columns') {
     super(page, pageRootSelector);
     this.loginFragment = new LoginFragment(page);
@@ -23,7 +25,7 @@ class SignInPage extends BasePage {
 
 decoratePage(SignInPage);
 
-module.exports = {
+export {
   SignInPage,
 };
 

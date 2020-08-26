@@ -1,6 +1,8 @@
-const {decoratePage, BasePage, $element} = require('../../../lib');
+import {decoratePage, BasePage, $element} from '../../../lib';
 
 class AccountPage extends BasePage {
+  page;
+  header;
   constructor(page, pageRootSelector = '.info-account') {
     super(page, pageRootSelector);
     this.header = $element(this.page, '.page-heading');
@@ -13,6 +15,6 @@ class AccountPage extends BasePage {
 
 decoratePage(AccountPage);
 
-module.exports = {
+export {
   AccountPage,
 };

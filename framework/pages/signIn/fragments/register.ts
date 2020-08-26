@@ -1,6 +1,17 @@
-const {decoratePage, BaseFragment, $element} = require('../../../../lib');
+import {decoratePage, BaseFragment, $element} from '../../../../lib';
 
 class RegisterFragment extends BaseFragment {
+  email;
+  submit;
+  checkbox;
+  firstName;
+  lastName;
+  password;
+  address;
+  city;
+  postCode;
+  mobilePhone;
+  submitAccount;
   constructor(page, rootFragmentSelector = '#header') {
     super(page, rootFragmentSelector);
     this.email = $element(this.page, '#email_create');
@@ -38,6 +49,6 @@ class RegisterFragment extends BaseFragment {
 
 decoratePage(RegisterFragment);
 
-module.exports = {
+export {
   RegisterFragment,
 };

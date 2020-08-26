@@ -1,4 +1,6 @@
 class BaseFragment {
+  page;
+  rootSelector;
   constructor(page, pageRootSelector) {
     this.page = page;
     this.rootSelector = pageRootSelector;
@@ -17,6 +19,6 @@ class BaseFragment {
 }
 
 
-module.exports = {
+export {
   BaseFragment,
 };

@@ -1,5 +1,5 @@
-const {wait} = require('./helpers');
-const chalk = require('chalk');
+import {wait} from './helpers';
+import * as chalk from 'chalk';
 
 function decoratePage(page) {
   const {name} = page;
@@ -15,13 +15,13 @@ function decoratePage(page) {
           if (name.includes('Fragment')) {
             message = `\t${message}`;
           }
-          console.log(chalk.green(message));
+          console.log(chalk['green'](message));
           await wait(this.page).waitVisibility(this.rootSelector);
           return originalProp.call(this, ...args);
         };
       });
 }
 
-module.exports = {
+export {
   decoratePage,
 };

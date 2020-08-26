@@ -1,4 +1,4 @@
-function makeSingleton(PagePo, ctxPage) {
+export function makeSingleton(PagePo, ctxPage) {
   if (PagePo.__instance) {
     PagePo.__instance._replacePage.call(PagePo.__instance, ctxPage);
     return PagePo.__instance;
@@ -8,7 +8,3 @@ function makeSingleton(PagePo, ctxPage) {
   PagePo.__instance = page;
   return PagePo.__instance;
 }
-
-module.exports = {
-  makeSingleton,
-};

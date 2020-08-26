@@ -1,7 +1,7 @@
-const {expect} = require('chai');
-const {pageProvider} = require('../framework');
-const {chromium} = require('playwright');
-const randomEmail = require('random-email');
+import {expect} from 'assertior';
+import {pageProvider} from '../framework';
+import {chromium} from 'playwright';
+import * as randomEmail from 'random-email';
 
 
 describe('Noop spec', function() {
@@ -23,7 +23,7 @@ describe('Noop spec', function() {
     const signInPage = pageProvider(page).signIn();
     const accountPage = pageProvider(page).account();
     await signInPage.login('thebigbadwolf228@gmail.com', '~~~~~');
-    expect(await accountPage.getMyAccountHeaderTitle()).to.equal('My account');
+    expect(await accountPage.getMyAccountHeaderTitle()).toEqual('My account');
   });
 
   it('register', async function() {
@@ -31,6 +31,6 @@ describe('Noop spec', function() {
     const accountPage = pageProvider(page).account();
     await signInPage.register(randomEmail(), 'ddo', 'last', '~~~~~',
         'address', 'city', '00000', '+3809568452');
-    expect(await accountPage.getMyAccountHeaderTitle()).to.equal('My account');
+    expect(await accountPage.getMyAccountHeaderTitle()).toEqual('My account');
   });
 });

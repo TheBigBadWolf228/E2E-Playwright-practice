@@ -1,4 +1,6 @@
 class BasePage {
+  page;
+  rootSelector;
   constructor(page, pageRootSelector) {
     this.page = page;
     this.rootSelector = pageRootSelector;
@@ -16,6 +18,6 @@ class BasePage {
   }
 }
 
-module.exports = {
+export {
   BasePage,
 };

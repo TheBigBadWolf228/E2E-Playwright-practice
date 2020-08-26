@@ -1,8 +1,13 @@
-const {wait} = require('../helpers');
-const chalk = require('chalk');
+import {wait} from '../helpers';
+import * as  chalk from 'chalk';
+
 
 class BaseElement {
-  constructor(page, selector, elementName) {
+  page;
+  selector;
+  currentElement;
+  elementName;
+  constructor(page, selector, elementName?) {
     this.page = page;
     this.selector = selector;
     this.currentElement = null;
@@ -26,8 +31,8 @@ class BaseElement {
   }
 }
 
-function $element(page, selector) {
-  const baseElement = new BaseElement(page, selector);
+function $element(page, selector, elementName?) {
+  const baseElement = new BaseElement(page, selector, elementName);
   return new Proxy(baseElement, {
     get(_t, value) {
       if (value=== '_replacePage') {
@@ -38,17 +43,17 @@ function $element(page, selector) {
             if (!baseElement.elementName) {
               baseElement.elementName = `BaseElement`;
             }
-            let message = `\t\t\t ${baseElement.elementName} execute ${value}`;
+            let message = `\t\t\t ${baseElement.elementName} execute ${value as string}`;
             if (args.length) {
               message = `${message} with arguments ${JSON.stringify(args)}`;
             }
-            console.log(chalk.green(message));
+            console.log(chalk['green'](message));
             return currentElement[value].call(currentElement, ...args);
           });
     },
   });
 }
 
-module.exports = {
+export {
   $element,
 };

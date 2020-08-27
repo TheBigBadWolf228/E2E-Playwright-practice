@@ -2,7 +2,8 @@
     "name": "e2e-playwright-practice",
     "main": "index.js",
     "scripts": {
-        "test": "mocha -r ts-node/register ./specs/**/*.spec.ts --timeout 10000 -R spec"
+        "test": "mocha -r ts-node/register ./specs/**/*.spec.ts --timeout 10000 -R spec",
+        "test:allure": "ALLURE=1 mocha -r ts-node/register ./specs/**/*.spec.ts --timeout 10000 -R spec --reporter mocha-allure2-reporter"
     },
     "keywords": [],
     "author": "",
@@ -25,6 +26,7 @@
         "@types/node": "^14.6.0",
         "assertior": "0.0.11",
         "chalk": "^4.1.0",
+        "mocha-allure2-reporter": "0.0.3",
         "random-email": "^1.0.3"
     }
 }

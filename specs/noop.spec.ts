@@ -19,7 +19,7 @@ describe('Noop spec', function() {
     const signInPage = pageProvider(page).signIn();
     const accountPage = pageProvider(page).account();
     await signInPage.login('thebigbadwolf228@gmail.com', '~~~~~');
-    expect(await accountPage.getMyAccountHeaderTitle()).toEqual('My account');
+    expect(await accountPage.getMyAccountHeaderTitle(), 'Header should be correct after login').toEqual('My account');
   });
 
   it('register', async function() {
@@ -27,6 +27,6 @@ describe('Noop spec', function() {
     const accountPage = pageProvider(page).account();
     await signInPage.register(randomEmail(), 'ddo', 'last', '~~~~~',
         'address', 'city', '00000', '+3809568452');
-    expect(await accountPage.getMyAccountHeaderTitle()).toEqual('My account');
+    expect(await accountPage.getMyAccountHeaderTitle(), 'Header should be correct after register').toEqual('My account');
   });
 });

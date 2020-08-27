@@ -1,6 +1,8 @@
 import {wait} from '../helpers';
 import * as  chalk from 'chalk';
+import {allureInterfaceStep} from '../page.conditions';
 
+const {ALLURE} = process.env;
 
 class BaseElement {
   page;
@@ -43,10 +45,16 @@ function $element(page, selector, elementName?) {
             if (!baseElement.id) {
               baseElement.id = `BaseElement`;
             }
+
             let message = `\t\t${baseElement.id} execute ${value as string}`;
             if (args.length) {
               message = `${message} with arguments ${JSON.stringify(args)}`;
             }
+
+            if(ALLURE) {
+              return allureInterfaceStep(message, currentElement[value].bind(currentElement, ...args));
+            }
+
             console.log(chalk['green'](message));
             return currentElement[value].call(currentElement, ...args);
           });
